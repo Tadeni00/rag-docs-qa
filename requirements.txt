@@ -1,0 +1,16 @@
+PyMuPDF
+frontend
+langchain
+python-dotenv
+matplotlib
+pandas
+numpy
+sentence_transformers
+scikit-learn
+chromadb
+transformers
+accelerate
+bitsandbytes
+python-dotenv
+hf_xet
+streamlit
