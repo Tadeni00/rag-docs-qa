@@ -18,22 +18,37 @@ A full-stack RAG (Retrieval-Augmented Generation) application that allows users 
 
 ## Project Structure
 
-rag-app/
-│
-├── src/
-│ ├── chunk_text.py # Splits raw text into semantic chunks
-│ ├── load_pdf.py # Extracts raw text from PDF
-│ ├── retrieve_chunks.py # Queries ChromaDB with sentence embeddings
-│ ├── generate_answer.py # Calls Groq's LLaMA-3 endpoint with context
-│ ├── store_upload_pdf.py # Handles uploading + chunking + storage
-│ ├── utils.py # Helpers for sanitizing collection names, etc.
-│
+rag-docs-qa
+├── app.py
+|
+├── requirements.txt
+|
+├── .streamlit/
+|   |
+│   └── config.toml
+|
 ├── data/
-│ └── chroma/ # Persistent ChromaDB storage
-│
-├── app.py # Streamlit UI for the RAG pipeline
-├── requirements.txt # All dependencies
-└── README.md # This file
+|   |
+│   └── chroma/  
+|  
+├── src/
+|
+│   ├── utils.py
+|   |
+│   ├── chunk_text.py
+|   |
+│   ├── load_pdf.py
+|   |
+│   ├── generate_answer.py
+|   |
+│   ├── retrieve_chunks.py
+|   |
+│   └── store_upload_pdf.py
+|
+├── .env                # For GROQ_API_KEY
+|
+└── README.md
+
 
 ---
 
@@ -42,10 +57,10 @@ rag-app/
 ### 1. Upload PDFs
 - User uploads a document via Streamlit.
 - `load_pdf.py` extracts the full text.
-- `chunk_text.py` breaks the text into chunks of 300–500 tokens.
+- `chunk_text.py` breaks the text into chunks of 500 tokens.
 
 ### 2. Store in ChromaDB
-- Each chunk is embedded with `all-MiniLM-L6-v2` (fast).
+- Each chunk is embedded with `all-mpnet-base-v2`.
 - Stored with metadata (source, chunk index) in ChromaDB.
 - Each collection is named after the sanitized input (no spaces or special chars).
 
@@ -108,13 +123,13 @@ streamlit run app.py
 | **6. Duplicate 'Generate Answer' button**            | Removed redundant Streamlit button logic. Only one unified handler now triggers generation.         |
 
 
-## ✨ Planned Improvements
+## Planned Improvements
 
 ✅ Support for multiple collections
 
 ✅ Display chunk citations with answer
 
-⏳ Export answer (PDF/Markdown)
+✅ Export answer (PDF/Markdown)
 
 ✅ Deployment on Streamlit Cloud
 

@@ -7,10 +7,12 @@ pandas
 numpy
 sentence_transformers
 scikit-learn
-chromadb
+chromadb>=0.4.24
 transformers
 accelerate
 bitsandbytes
 python-dotenv
 hf_xet
 streamlit
+reportlab
+requests

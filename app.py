@@ -8,6 +8,7 @@ from src.utils import clean_collection_name
 from src.utils import clean_pycache
 from src.store_upload_pdf import store_uploaded_pdf, list_chroma_collections
 from src.retrieve_chunks import retrieve_chunks
+from src.utils import export_answer_to_pdf
 
 
 # Streamlit UI
@@ -58,7 +59,16 @@ if st.button("Generate Answer") and query:
             full_response += token
             answer_placeholder.markdown(full_response)
 
+    pdf_path = export_answer_to_pdf(full_response, query)
+    with open(pdf_path, "rb") as f:
+        st.download_button(
+            label="📥 Download Answer as PDF",
+            data=f,
+            file_name="answer.pdf",
+            mime="application/pdf"
+    )
 
     with st.expander("📄 Show Retrieved Chunks"):
         for i, chunk in enumerate(chunks):
             st.markdown(f"**Chunk {i+1}:**\n\n{chunk}")
+

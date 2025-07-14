@@ -1,14 +1,14 @@
 import tempfile
 from chromadb import Client
 from chromadb.utils import embedding_functions
-from src.load_pdf import load_pdf_text
-from src.chunk_text import chunk_text
+from load_pdf import load_pdf_text
+from chunk_text import chunk_text
 
 def store_uploaded_pdf(uploaded_file, collection_name):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
         tmp.write(uploaded_file.read())
         tmp_path = tmp.name
-
+    print("Using in-memory ChromaDB (Client)")
     text = load_pdf_text(tmp_path)
     chunks = chunk_text(text)
 
@@ -30,3 +30,5 @@ def store_uploaded_pdf(uploaded_file, collection_name):
 def list_chroma_collections():
     client = Client()
     return [col.name for col in client.list_collections()]
+
+
