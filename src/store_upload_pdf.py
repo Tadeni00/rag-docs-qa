@@ -1,8 +1,8 @@
 import tempfile
 from chromadb import Client
 from chromadb.utils import embedding_functions
-from load_pdf import load_pdf_text
-from chunk_text import chunk_text
+from src.load_pdf import load_pdf_text
+from src.chunk_text import chunk_text
 
 def store_uploaded_pdf(uploaded_file, collection_name):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:

@@ -7,7 +7,7 @@ pandas
 numpy
 sentence_transformers
 scikit-learn
-chromadb>=0.4.24
+chromadb
 transformers
 accelerate
 bitsandbytes
@@ -16,3 +16,5 @@ hf_xet
 streamlit
 reportlab
 requests
+fpdf
+pdfminer.six
