@@ -128,10 +128,10 @@ streamlit run app.py
 
 ✅ Display chunk citations with answer
 
-✅ Export answer (PDF/Markdown)
+✅ Export answer (PDF)
 
 ✅ Deployment on Streamlit Cloud
 
 ⏳ Chunk visualization and highlighting
 
-⏳ Support non-PDF text inputs (like DOCX, TXT)
+⏳ Support non-PDF text inputs (like DOCX, TXT, URL)
