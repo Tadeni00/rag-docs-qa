@@ -22,10 +22,10 @@ st.markdown("---")
 # PDF Upload
 st.header("📤 Upload a PDF")
 
-raw_collection_name = st.text_input("🗂️ Collection name to store in:", value="uploaded-docs")
+raw_collection_name = st.text_input("🗂️ Write the collection name you want to store in below:", value="uploaded-docs")
 collection_name = clean_collection_name(raw_collection_name)
 
-uploaded_file = st.file_uploader("Choose a PDF", type="pdf")
+uploaded_file = st.file_uploader("Choose a PDF from your device", type="pdf")
 
 if uploaded_file and st.button("➕ Add to Collection"):
     with st.spinner("Storing in ChromaDB..."):

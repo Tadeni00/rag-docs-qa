@@ -18,36 +18,25 @@ A full-stack RAG (Retrieval-Augmented Generation) application that allows users 
 
 ## Project Structure
 
-rag-docs-qa
-├── app.py
-|
+rag-docs-qa/
+│
+├── Dockerfile
 ├── requirements.txt
-|
-├── .streamlit/
-|   |
-│   └── config.toml
-|
-├── data/
-|   |
-│   └── chroma/  
-|  
+├── README.md
+├── .dockerignore
+│
+├── app.py                    # Main Streamlit entry point
+│
 ├── src/
-|
-│   ├── utils.py
-|   |
-│   ├── chunk_text.py
-|   |
-│   ├── load_pdf.py
-|   |
-│   ├── generate_answer.py
-|   |
-│   ├── retrieve_chunks.py
-|   |
-│   └── store_upload_pdf.py
-|
-├── .env                # For GROQ_API_KEY
-|
-└── README.md
+│   ├── __init__.py
+│   ├── generate_answer.py    # Handles LLM querying (Groq + LLaMA 3)
+│   ├── retrieve_chunks.py    # Retrieves similar chunks from ChromaDB
+│   ├── store_upload_pdf.py   # Chunks + stores uploaded PDFs into ChromaDB
+│   └── utils.py              # Utilities (e.g., clean_collection_name, pycache cleanup)
+│
+├── data/                     
+│   └── chroma/               
+
 
 
 ---
