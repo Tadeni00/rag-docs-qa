@@ -66,7 +66,7 @@ rag-docs-qa/
 ### 3. Ask Questions
 - User types a question and selects the document collection to query.
 - `retrieve_chunks.py` computes embedding with `all-mpnet-base-v2` (better retrieval quality).
-- Top `k` most similar chunks are returned with their metadata.
+- Top `5` most similar chunks are returned with their metadata.
 
 ### 4. Generate Answer
 - `generate_answer.py` constructs a prompt with the retrieved context and citations.
